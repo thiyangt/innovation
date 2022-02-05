@@ -119,7 +119,7 @@ $$Y = \beta_0e^{\beta_1x} + \epsilon$$
 --
  What about this?
 
-$$Y = \alpha X_1^\beta X_2^\gamma X_3^\delta + \epsilon$$
+$$Y = \alpha X_1^\beta X_2^\gamma X_3^\delta e^\epsilon$$
 
 
 ---
