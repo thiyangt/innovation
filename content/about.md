@@ -7,9 +7,9 @@ title: Course Schedule
 
 Lesson 1: Introduction to regression
 
-[slides-1]
+[slides-1](/regression/regression1.html)
 
 
 Lesson 2: Simple linear regression
 
-[slides-2]
+[slides-2](/regression/regression2.html)
