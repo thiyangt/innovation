@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>A Hugo website</title>
-    <link>/</link>
+    <link>https://thiyangaregression.netlify.app/</link>
     <description>Recent content on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Feb 2022 13:09:13 -0600</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Feb 2022 13:09:13 -0600</lastBuildDate><atom:link href="https://thiyangaregression.netlify.app/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction to Linear Regression Analysis</title>
-      <link>/2022/02/04/introduction-to-linear-regression-analysis/</link>
+      <link>https://thiyangaregression.netlify.app/2022/02/04/introduction-to-linear-regression-analysis/</link>
       <pubDate>Fri, 04 Feb 2022 13:09:13 -0600</pubDate>
       
-      <guid>/2022/02/04/introduction-to-linear-regression-analysis/</guid>
+      <guid>https://thiyangaregression.netlify.app/2022/02/04/introduction-to-linear-regression-analysis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Course Schedule</title>
-      <link>/about/</link>
+      <link>https://thiyangaregression.netlify.app/about/</link>
       <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
       
-      <guid>/about/</guid>
+      <guid>https://thiyangaregression.netlify.app/about/</guid>
       <description>Course outline
 Lesson 1: Introduction to regression
-[slides-1]
+slides-1
 Lesson 2: Simple linear regression
-[slides-2]</description>
+slides-2</description>
     </item>
     
   </channel>
