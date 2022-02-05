@@ -17,12 +17,16 @@
     </item>
     
     <item>
-      <title>About</title>
+      <title>Course Schedule</title>
       <link>/about/</link>
       <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
       
       <guid>/about/</guid>
-      <description>This is a &amp;ldquo;hello world&amp;rdquo; example website for the blogdown package. The theme was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui Xie.</description>
+      <description>Course outline
+Lesson 1: Introduction to regression
+[slides-1]
+Lesson 2: Simple linear regression
+[slides-2]</description>
     </item>
     
   </channel>
