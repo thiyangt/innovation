@@ -145,7 +145,63 @@ We use sample values $(y_i, x_i)$ where $i=1, 2, ...n$ to estimate $\beta_0$ and
 The fitted regression model is 
 
 $$\hat{Y_i} = \hat{\beta}_0 + \hat{\beta}_1x_i$$
+
 ---
+
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+library(ggplot2)
+set.seed(123)
+x <- rep(1:5, each=10)
+y <- 10 * x + 20 + rnorm(50, sd=10)
+df <- data.frame(x=x, y=y)
+y2 <- 10*1:5 + 20
+df2 <- data.frame(x=1:5, y=y2)
+ggplot(df, aes(x=x, y=y)) + geom_point()
+```
+
+---
+
+## Population mean
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+ggplot(df, aes(x=x, y=y)) + geom_point() +
+geom_point(data=df2, aes(x=x, y=y), colour="red", size=3)
+```
+
+---
+
+## Population mean (red) and sample mean (green)
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+ggplot(df, aes(x=x, y=y)) + geom_point() + stat_summary(fun.y=mean, geom="point", col="green", size=5) + 
+geom_point(data=df2, aes(x=x, y=y), colour="red", size=3)  
+```
+
+
+---
+## Population Regression
+
+$$E(Y|X=x_i) = \beta_0+\beta_1x_i$$
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+ggplot(df, aes(x=x, y=y)) + geom_point() +
+geom_point(data=df2, aes(x=x, y=y), colour="red", size=3) +
+  geom_line(data=df2, aes(x=x, y=y), colour="orange", size=2)
+```
+
+---
+
+## Population regression line and fitted regression line
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+ggplot(df, aes(x=x, y=y)) + geom_point() + geom_smooth(method='lm', col="forestgreen", se=FALSE) +
+geom_point(data=df2, aes(x=x, y=y), colour="red", size=3) +
+  geom_line(data=df2, aes(x=x, y=y), colour="red", size=2, alpha=0.3)
+```
+
+---
+
 ## Normal distribution
 
 ```{r, comment=NA, echo=FALSE, warning=FALSE, message=FALSE}
