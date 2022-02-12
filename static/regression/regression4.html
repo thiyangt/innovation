@@ -4,7 +4,7 @@
     <title>STA 506 2.0 Linear Regression Analysis</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr Thiyanga S. Talagala" />
-    <meta name="date" content="2020-09-25" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
     <link href="libs/remark-css/duke-blue.css" rel="stylesheet" />
@@ -17,9 +17,8 @@
 class: center, middle, inverse, title-slide
 
 # STA 506 2.0 Linear Regression Analysis
-## Lecture 5: Interpretation of Regression Outputs
+## Interpretation of Regression Outputs
 ### Dr Thiyanga S. Talagala
-### 2020-09-25
 
 ---
 
@@ -374,24 +373,31 @@ Coefficients:
 
 ```r
 library(broom)
+```
+
+```
+Warning: package 'broom' was built under R version 4.1.2
+```
+
+```r
 mod1_fitresid &lt;- augment(mod1)
 mod1_fitresid
 ```
 
 ```
-# A tibble: 32 x 9
-    Size  Time .fitted .se.fit  .resid   .hat .sigma  .cooksd .std.resid
-   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
- 1  0.08     2   0.844   0.312 -0.764  0.0883   1.06 0.0281      -0.762 
- 2  0.07     2   0.844   0.312 -0.774  0.0883   1.06 0.0289      -0.772 
- 3  1.12     4   1.89    0.278 -0.766  0.0700   1.06 0.0215      -0.756 
- 4  2.01     4   1.89    0.278  0.124  0.0700   1.07 0.000567     0.123 
- 5  4.43     6   2.93    0.247  1.50   0.0552   1.03 0.0634       1.47  
- 6  4.98     8   3.97    0.220  1.01   0.0440   1.05 0.0223       0.984 
- 7  4.92    10   5.01    0.200 -0.0917 0.0363   1.07 0.000149    -0.0890
- 8  7.18    12   6.05    0.188  1.13   0.0321   1.05 0.0197       1.09  
- 9  5.57    14   7.10    0.186 -1.53   0.0314   1.03 0.0354      -1.48  
-10  8.4     16   8.14    0.194  0.262  0.0343   1.07 0.00115      0.254 
+# A tibble: 32 × 8
+    Size  Time .fitted  .resid   .hat .sigma  .cooksd .std.resid
+   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
+ 1  0.08     2   0.844 -0.764  0.0883   1.06 0.0281      -0.762 
+ 2  0.07     2   0.844 -0.774  0.0883   1.06 0.0289      -0.772 
+ 3  1.12     4   1.89  -0.766  0.0700   1.06 0.0215      -0.756 
+ 4  2.01     4   1.89   0.124  0.0700   1.07 0.000567     0.123 
+ 5  4.43     6   2.93   1.50   0.0552   1.03 0.0634       1.47  
+ 6  4.98     8   3.97   1.01   0.0440   1.05 0.0223       0.984 
+ 7  4.92    10   5.01  -0.0917 0.0363   1.07 0.000149    -0.0890
+ 8  7.18    12   6.05   1.13   0.0321   1.05 0.0197       1.09  
+ 9  5.57    14   7.10  -1.53   0.0314   1.03 0.0354      -1.48  
+10  8.4     16   8.14   0.262  0.0343   1.07 0.00115      0.254 
 # … with 22 more rows
 ```
 
@@ -883,7 +889,8 @@ Introduction to Linear Regression Analysis, Douglas C. Montgomery, Elizabeth A. 
 
 All rights reserved by 
 
-[Dr. Thiyanga S. Talagala](https://thiyanga.netlify.app/)
+[Dr. Thiyanga S. Talagala](https://thiyanga.netlify.app/) 
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

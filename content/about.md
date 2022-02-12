@@ -13,3 +13,11 @@ Lesson 1: Introduction to regression
 Lesson 2: Simple linear regression
 
 [slides-2](/regression/regression2.html)
+
+Lesson 3: Simple linear regression
+
+[slides-3](/regression/regression3.html)
+
+Lesson 4: Interpretation of Regression Outputs
+
+[slides-4](/regression/regression4.html)

@@ -1,8 +1,8 @@
 ---
 title: "STA 506 2.0 Linear Regression Analysis"
-subtitle: "Lecture 4: Simple Linear Regression (cont.)"
+subtitle: "Simple Linear Regression (cont.)"
 author: "Dr Thiyanga S. Talagala"
-date: "2020-09-19"
+date: ""
 output:
   xaringan::moon_reader:
     lib_dir: libs

@@ -1,8 +1,8 @@
 ---
 title: "STA 506 2.0 Linear Regression Analysis"
-subtitle: "Lecture 5: Interpretation of Regression Outputs"
+subtitle: "Interpretation of Regression Outputs"
 author: "Dr Thiyanga S. Talagala"
-date: "2020-09-25"
+date: ""
 output:
   xaringan::moon_reader:
     lib_dir: libs
