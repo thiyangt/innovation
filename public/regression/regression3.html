@@ -127,7 +127,8 @@ F-statistic: 435.5 on 1 and 1373 DF,  p-value: &lt; 2.2e-16
 ---
 ## Model assumptions
 
-1) The relationship between the response `\(Y\)` and the regressors is linear, at least approximately.
+1) The mean of the response, `\(E(Y_i)\)`, at each value of the predictor, `\(x_i\)`, is a **L**inear function of the `\(x_i\)`
+
 
 ---
 
@@ -135,7 +136,8 @@ F-statistic: 435.5 on 1 and 1373 DF,  p-value: &lt; 2.2e-16
 
  2) The error term `\(\epsilon\)` has zero mean.
 
- 3) The error term `\(\epsilon\)` has constant variance `\(\sigma^2\)`.
+ 3)  At each value of the predictor, `\(x\)`,
+errors have equal, constant variance `\(\sigma^2\)`.
 
 
 ![](erro.png)
@@ -146,11 +148,16 @@ source: http://reliawiki.org/index.php/Simple_Linear_Regression_Analysis
 
 4) The error are uncorrelated.
 
-5) The errors are normally distributed.
+5) At each value of the predictor, `\(x\)`
+the errors are normally distributed
 
 &gt; Taking together 4 and 5 imply the errors are independent random variables. 
 
 &gt; Assumption 5 is required for parametric statistical inference (Hypothesis testing, Interval estimation).
+
+---
+
+An alternative way to describe all four (2-5) assumptions is that the errors, `\(\epsilon_i\)`, are independent normal random variables with mean zero and constant variance, `\(\sigma^2\)`.
 
 ---
 
