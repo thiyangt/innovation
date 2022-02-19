@@ -1,0 +1,331 @@
+---
+output:
+  bookdown::pdf_document2:
+    toc: false
+    number_sections: false
+    keep_tex: yes
+classoption: a4paper
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, fig.align='center', echo=FALSE, out.height="20%", out.width="20%"}
+knitr::include_graphics("unilogo.png")
+```
+
+\begin{center}
+\textbf{UNIVERSITY OF SRI JAYEWARDENEPURA}
+
+\textbf{FACULTY OF GRADUATE STUDIES}
+
+\textbf{Postgraduate Certificate Program in Applied Statistics} 
+
+\textbf{First Semester Course Unit Examination} 
+
+\textbf{2021 - January}
+
+\textbf{DEPARTMENT OF STATISTICS}
+
+\textbf{STA 506 2.0 Linear Regression Analysis}
+
+Time: Two (2.0) hours
+
+No: of Questions - 04
+
+No: of Pages – 09
+
+Total marks - 100
+
+\end{center}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{center}
+
+\textbf{Answer all questions.}
+
+\end{center}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+## Instructions to the Candidates
+
+- Write your index number and the page number on each sheet of your answer script.
+
+- Conduct all tests at the 0.01 significance level. 
+
+- All the equations and symbols used are in usual notation.
+
+- Students should save files using their index number followed by course code.
+
+    For example: 20189997_STA506
+
+    If multiple files 
+
+    20189997_STA506_part1of2
+
+    20189997_STA506_part2of2
+
+- At the end of the exam, please upload images or scanned copies of your answer scripts to the Google classroom. Make sure the quality is good, the images clear, properly arranged, and with all the pages scanned.
+
+- It is student's responsibility to ensure that whatever you submit is legible and is complete.
+
+- Do not use red pens for answering. 
+
+\newpage
+
+## Question 1:  (40 marks)
+
+A medical research team wants to study the relationship between the **head circumferences of newborns (centimetres) - HC** and the **gestational age (weeks) - GA**. A simple random sample of 57 babies was selected from the records of babies born in a certain hospital, and their head circumferences (centimetres) and gestational age (weeks) were recorded.  
+
+In their attempt to find the relationship between head circumferences and gestational age, they plotted the head circumference versus the gestational age and obtained the following graph (Figure \@ref(fig:hc)).
+
+
+```{r hc, comment=NA, echo=FALSE, fig.cap="The scatter plot  of head circumference versus the gestational age. The Pearson correlation coeffifient is 0.99", warning=FALSE, message=FALSE, fig.height=3, fig.width=3}
+set.seed(2020)
+library(tidyverse)
+GA <- c(rep(22, 4), rep(23.5, 5), rep(24, 4), 24, rep(25.5, 5),  rep(26, 4), rep(27, 3), rep(28, 4), rep(29, 5),
+        rep(30.5, 3), rep(31, 5), rep(32.2, 5), rep(33.5, 5), rep(34, 4))
+HC <- 3.91 + (0.78 * GA) + rnorm(50, sd=0.1)
+df1 <- data.frame(GA=GA, HC=HC)
+ggplot(df1, aes(x=GA, y=HC)) + geom_point() +
+  coord_fixed(ratio=1.2) + xlab("Gestational age (weeks) - GA") + 
+  ylab("Head circumference (cm) - HC") 
+
+```
+
+
+
+
+
+i) Comment on the scatter plot (Figure \@ref(fig:hc)) given above.
+
+ii) Write the model you would fit to these data. Define all terms in it and state any assumptions you make regarding the model.
+
+A simple linear regression analysis was performed with these data and the following outputs were obtained using R software.
+
+**Output A**
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+model <- lm(HC~GA)
+model
+```
+
+
+\newpage
+
+**Output B**
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+summary(model)
+```
+
+**Output C**
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+anova(model)
+```
+
+
+**Output D**
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE, fig.height=3, fig.width=6}
+library(broom)
+fitmodel <- augment(model)
+fitmodel$residmodify <- fitmodel$.resid
+ fitmodel$residmodify <- ifelse(fitmodel$residmodify >0.11, 0.1, fitmodel$residmodify)
+  fitmodel$residmodify <- ifelse(fitmodel$residmodify < -0.22, -0.1, fitmodel$residmodify)
+p1 <- qplot(data=fitmodel, y=residmodify, x=.fitted)+ ggtitle("Figure a") + ylab("Residuals")
+p2 <- ggplot(fitmodel, 
+       aes(sample=.resid))+
+  stat_qq() + 
+  stat_qq_line() +
+  labs(x="Theoretical Quantiles",
+       y="Sample Quantiles") + ggtitle("Figure b")
+library(patchwork)
+p1|p2
+```
+
+\newpage
+
+**Output E**
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+shapiro.test(fitmodel$.resid)
+```
+
+iii) Write the fitted regression model.
+
+
+iv) Complete the ANOVA table below (Copy the table below in your answer script and complete it.).
+
+\begin{table}[!h]
+\center
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+Source of variation & DF & Sum of squares (SS) & Mean Square (MS) & F-value &  p-value\\ \hline
+Regression &  &  &  &  &  \\ \hline
+Residual error &  &  &  &  &  \\ \hline
+Total &  &  &  &  &  \\ \hline
+\end{tabular}
+\end{table}
+
+v) Test the significance of the model fitted. You should clearly write the hypothesis, decision and conclusions.
+
+vi) What proportion of the variation in the response is explained by the model fitted?
+
+vii) Two undergraduates studying Biostatistics were looking at this analysis.
+
+\begin{enumerate}
+\item[ ]  Student A: said that the results strongly suggest that this model is highly significant and can be used for prediction purposes. 
+\item[ ]  Student B: said that the results show the fitted model is not appropriate for this case and this model cannot be used for prediction. 
+\end{enumerate}
+
+
+
+\begin{enumerate}
+\item[] With whom would you agree? Justify your argument using the results given above (Outputs A-E).  
+\end{enumerate}
+
+
+viii) The point on the graph (Figure 2, below), coloured in red, represents a baby with gestational age 31 weeks and head circumference 28.03 cm, (GA=31, HC=28.03). 
+
+```{r hc2, comment=NA, echo=FALSE, fig.cap="The scatterplot of head circumference versus the gestational age. The point, (GA=31, HC=28.03), is coloured in red on the graph.", warning=FALSE, message=FALSE, fig.height=2.5, fig.width=2.5}
+df2 = df1[42, ]
+ggplot(df1, aes(x=GA, y=HC)) + geom_point() +
+  coord_fixed(ratio=1.2) + xlab("Gestational age (weeks) - GA") + 
+  ylab("Head circumference (cm) - HC") + geom_point(data=df2, aes(x=GA, y=HC), colour="red",)
+```
+
+\begin{enumerate}
+\item[a. ]  Find the fitted value for this point. 
+\item[b. ]  Find the residual for this point.
+\end{enumerate}
+
+\newpage
+
+ix) Later in the study, information regarding the mother's age (AGE) for each baby was obtained. A multiple linear regression model was fitted adding  this variable to the earlier model. The R output results are given below. Assume all the assumptions of the multiple linear regression model are satisfied.  Interpret the estimated values of the parameters of the model.
+
+
+```{r, comment=NA, message=FALSE, echo=FALSE}
+df1$AGE <- round(rnorm(57, mean=35, sd=1), 1)
+model2 <- lm(HC~GA+AGE, data=df1)
+model2
+```
+
+
+
+
+## Question 2: (20 marks)
+
+
+In a soap production factory, two machines: machine A and machine B, are used for the production. Using 32 soaps: 15 from machine A and 17 from machine B, the management wanted to find the relationship between the machine speed and the amount of scrap produced during the production process. To allow the two machines to have different regression lines with different intercepts and slopes the following model was fitted for all 32 observations.
+
+
+
+$$Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_1 X_2 + \epsilon$$
+
+where,
+
+$$X_1 \text{ is machine speed and}$$
+
+\begin{equation}
+  X_{2} =
+  \begin{cases}
+    0 & \text{if machine A} \\
+    1 & \text{if machine B}
+  \end{cases}
+\end{equation}
+
+i)	Write the regression model equations for each machine.
+
+ii)	Draw a sketch of the scatter plot which is expected with the above model along with model equations.
+ 
+
+
+iii) Write the hypotheses that should be tested to find whether the two machines have the same regression model or not, i.e. whether both the intercept and the slope are the same of the two models you wrote in i) in the above. 
+
+## Question 3: (20 marks)
+
+
+A group of new graduates who has studied Statistics (stat), Mathematics (maths) and Computer Science (csc) at the Faculty of Applied Sciences, University of Jayewardenepura joined a company. They were given a test for each of the three subjects they have studied for the degree at the final interview from which they were selected for the job. After a probationary period of three months, their proficiency for the job was measured. The tests scores and the measure of proficiency were analysed to find a model to predict proficiency using the test scores. Some results are shown below. 
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE, fig.height=7, fig.width=7}
+set.seed(1)
+Proficiency <- rnorm(10, mean=50)
+maths <- rnorm(10, 70, sd=5)
+set.seed(1)
+csc <- rexp(10, 60)
+set.seed(1)
+stat <- maths + rnorm(10)
+df <- data.frame(Proficiency=Proficiency, maths=maths, csc=csc, stat=stat)
+library(GGally)
+ggpairs(df)
+
+```
+
+```{r, comment=NA, message=FALSE, warning=FALSE}
+model.sjp <- lm(Proficiency ~ maths + csc + stat, data=df)
+summary(model.sjp)
+car::vif(model.sjp)
+```
+
+
+A statistician examined these results and claimed that “multicollinearity” has affected this model. 
+
+i) What is meant by multicollinearity? 
+
+ii) Do you agree with statistician's claim. Justify your answer.
+
+The following outputs are obtained using R programming software.
+
+```{r, comment=NA, message=FALSE, warning=FALSE}
+library(broom)
+as.data.frame(augment(model.sjp))
+```
+
+iii) Are there any observations that have high leverage values? If so, what are their observation numbers.
+
+## Question 4: (20 marks)
+
+i) It was revealed that $\beta_1=0$ for a simple linear regression model between the variables $X$ and $Y$, and therefore, now the model is $Y = \beta_0 + \epsilon$. Draw a **sketch** of the scatter plot for this relationship between $X$ and $Y$.
+
+```{r, comment=NA, message=FALSE, warning=FALSE,  out.width = "60%", fig.align="center", echo=FALSE}
+knitr::include_graphics("coconut.png")
+```
+
+
+The Consumer Affairs Authority (CAA) issued a special gazette notification last September setting a maximum retail price for coconut based on the circumference of coconut due to the high prices in the market. An investigator wants to study how the **circumference** of coconut related to **weight** of the coconut. A simple linear regression model was fitted to the data and the R output is shown below.
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+coconut <- read_csv("coconut.csv")
+coconut.model <- lm(weight ~ circumference, data=coconut)
+summary(coconut.model)
+```
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE, fig.height=3, fig.width=6}
+fitmodel.coco <- broom::augment(coconut.model)
+c1 <- ggplot2::qplot(data=fitmodel.coco, y=.resid, x=.fitted) + ggtitle("Figure 4.a") + ylab("Residuals")
+c2 <- ggplot(fitmodel, 
+       aes(sample=.resid))+
+  stat_qq() + 
+  stat_qq_line() +
+  labs(x="Theoretical Quantiles",
+       y="Sample Quantiles") + ggtitle("Figure 4.b")
+c1|c2
+shapiro.test(fitmodel.coco$.resid)
+```
+
+
+
+ii) Are you satisfied with the fitted model? If your answer is "Yes", write the reasons and give all possible evidence to justify your answer. If your answer is "No", write the reasons and suggest possible ways to improve the fit of the simple linear regression model.
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+
+\begin{center}
+END 
+\end{center}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}

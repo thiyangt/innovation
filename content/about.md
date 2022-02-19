@@ -21,3 +21,5 @@ Lesson 3: Simple linear regression
 Lesson 4: Interpretation of Regression Outputs
 
 [slides-4](/regression/regression4.html)
+
+Tutorial 1: [cleck here](/Tutorial/tutorial_1.pdf)

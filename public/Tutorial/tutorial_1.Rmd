@@ -1,0 +1,135 @@
+---
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## STA 506 2.0 Linear Regression Analysis
+
+### Tutorial 1
+
+
+A medical research team wants to study the relationship between the **head circumferences of newborns (centimetres) - HC** and the **gestational age (weeks) - GA**. A simple random sample of 57 babies was selected from the records of babies born in a certain hospital, and their head circumferences (centimetres) and gestational age (weeks) were recorded.  
+
+In their attempt to find the relationship between head circumferences and gestational age, they plotted the head circumference versus the gestational age and obtained the following graph 
+
+```{r hc, comment=NA, echo=FALSE, fig.cap="The scatter plot  of head circumference versus the gestational age. The Pearson correlation coeffifient is 0.99", warning=FALSE, message=FALSE, fig.height=3, fig.width=3}
+set.seed(2020)
+library(tidyverse)
+GA <- c(rep(22, 4), rep(23.5, 5), rep(24, 4), 24, rep(25.5, 5),  rep(26, 4), rep(27, 3), rep(28, 4), rep(29, 5),
+        rep(30.5, 3), rep(31, 5), rep(32.2, 5), rep(33.5, 5), rep(34, 4))
+HC <- 3.91 + (0.78 * GA) + rnorm(50, sd=0.1)
+df1 <- data.frame(GA=GA, HC=HC)
+ggplot(df1, aes(x=GA, y=HC)) + geom_point() +
+  coord_fixed(ratio=1.2) + xlab("Gestational age (weeks) - GA") + 
+  ylab("Head circumference (cm) - HC") 
+
+```
+
+i) Comment on the scatter plot given above.
+
+ii) Write the model you would fit to these data. Define all terms in it and state any assumptions you make regarding the model.
+
+A simple linear regression analysis was performed with these data and the following outputs were obtained using R software.
+
+**Output A**
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+model <- lm(HC~GA)
+model
+```
+
+
+
+\newpage
+
+**Output B**
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+summary(model)
+```
+
+**Output C**
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+anova(model)
+```
+
+
+**Output D**
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE, fig.height=3, fig.width=6}
+library(broom)
+fitmodel <- augment(model)
+fitmodel$residmodify <- fitmodel$.resid
+ fitmodel$residmodify <- ifelse(fitmodel$residmodify >0.11, 0.1, fitmodel$residmodify)
+  fitmodel$residmodify <- ifelse(fitmodel$residmodify < -0.22, -0.1, fitmodel$residmodify)
+p1 <- qplot(data=fitmodel, y=residmodify, x=.fitted)+ ggtitle("Figure a") + ylab("Residuals")
+p2 <- ggplot(fitmodel, 
+       aes(sample=.resid))+
+  stat_qq() + 
+  stat_qq_line() +
+  labs(x="Theoretical Quantiles",
+       y="Sample Quantiles") + ggtitle("Figure b")
+library(patchwork)
+p1|p2
+```
+
+\newpage
+
+
+**Output E**
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+shapiro.test(fitmodel$.resid)
+```
+
+iii) Write the fitted regression model.
+
+
+iv) Complete the ANOVA table below (Copy the table below in your answer script and complete it.).
+
+\begin{table}[!h]
+\center
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+Source of variation & DF & Sum of squares (SS) & Mean Square (MS) & F-value &  p-value\\ \hline
+Regression &  &  &  &  &  \\ \hline
+Residual error &  &  &  &  &  \\ \hline
+Total &  &  &  &  &  \\ \hline
+\end{tabular}
+\end{table}
+
+v) Test the significance of the model fitted. You should clearly write the hypothesis, decision and conclusions.
+
+vi) What proportion of the variation in the response is explained by the model fitted?
+
+vii) Two undergraduates studying Biostatistics were looking at this analysis.
+
+\begin{enumerate}
+\item[ ]  Student A: said that the results strongly suggest that this model is highly significant and can be used for prediction purposes. 
+\item[ ]  Student B: said that the results show the fitted model is not appropriate for this case and this model cannot be used for prediction. 
+\end{enumerate}
+
+
+\begin{enumerate}
+\item[] With whom would you agree? Justify your argument using the results given above (Outputs A-E).  
+\end{enumerate}
+
+
+viii) The point on the graph (Figure 2, below), coloured in red, represents a baby with gestational age 31 weeks and head circumference 28.03 cm, (GA=31, HC=28.03). 
+
+```{r hc2, comment=NA, echo=FALSE, fig.cap="The scatterplot of head circumference versus the gestational age. The point, (GA=31, HC=28.03), is coloured in red on the graph.", warning=FALSE, message=FALSE, fig.height=4, fig.width=4}
+df2 = df1[42, ]
+ggplot(df1, aes(x=GA, y=HC)) + geom_point() +
+  coord_fixed(ratio=1.2) + xlab("Gestational age (weeks) - GA") + 
+  ylab("Head circumference (cm) - HC") + geom_point(data=df2, aes(x=GA, y=HC), colour="red", shape=4, lwd=5)
+```
+
+\begin{enumerate}
+\item[a. ]  Find the fitted value for this point. 
+\item[b. ]  Find the residual for this point.
+\end{enumerate}
+
