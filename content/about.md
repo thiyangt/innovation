@@ -27,6 +27,6 @@ Lesson 4: Interpretation of Regression Outputs
 
 [slides-4](/regression/regression4.html)
 
-Tutorial 1: [cleck here](/Tutorial/tutorial_1.pdf)
+Tutorial 1: [click here](/Tutorial/tutorial_1.pdf)
 
 [Install R and RStudio](https://r4fun.netlify.app/blog/topic1/)
