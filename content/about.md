@@ -43,5 +43,5 @@ Simple Linear Regression Analysis with R
 
 [Introduction to R and Rstudio](https://r4fun.netlify.app/slides/4introduction_to_r_and_rstudio/1_intro_r_iassl#1)
 
-Simple linear regression with R: [R script](/static/script/1regression.R)
+Simple linear regression with R: [R script](/script/1regression.R)
 
