@@ -3,6 +3,12 @@ date: "2016-05-05T21:48:51-07:00"
 title: Course Schedule
 ---
 
+# Lecture schedule
+
+
+![](/regression/timetable.png)
+
+
 ## Week 1
 
 [Course outline](/STA_506_2.0_LinearRegressionAnalysis_2020S1.pdf)
@@ -30,3 +36,12 @@ Lesson 4: Interpretation of Regression Outputs
 Tutorial 1: [click here](/Tutorial/tutorial_1.pdf)
 
 [Install R and RStudio](https://r4fun.netlify.app/blog/topic1/)
+
+## Week 4
+
+Simple Linear Regression Analysis with R
+
+[Introduction to R and Rstudio](https://r4fun.netlify.app/slides/4introduction_to_r_and_rstudio/1_intro_r_iassl#1)
+
+Simple linear regression with R: class demo
+

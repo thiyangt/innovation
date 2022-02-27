@@ -22,7 +22,7 @@
       <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
       
       <guid>https://thiyangaregression.netlify.app/about/</guid>
-      <description>Week 1 Course outline
+      <description>Lecture schedule Week 1 Course outline
 Lesson 1: Introduction to regression
 slides-1
 Week 2 Lesson 2: Simple linear regression
@@ -32,7 +32,10 @@ slides-3
 Week 3 Lesson 4: Interpretation of Regression Outputs
 slides-4
 Tutorial 1: click here
-Install R and RStudio</description>
+Install R and RStudio
+Week 4 Simple Linear Regression Analysis with R
+Introduction to R and Rstudio
+Simple linear regression with R: class demo</description>
     </item>
     
   </channel>
