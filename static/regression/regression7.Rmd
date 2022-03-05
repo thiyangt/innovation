@@ -1,8 +1,8 @@
 ---
 title: "STA 506 2.0 Linear Regression Analysis"
-subtitle: "Lecture 9: Analysis of Variance, or ANOVA"
+subtitle: " Analysis of Variance, or ANOVA"
 author: "Dr Thiyanga S. Talagala"
-date: "2020-10-24"
+date: ""
 output:
   xaringan::moon_reader:
     lib_dir: libs

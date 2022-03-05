@@ -45,3 +45,17 @@ Simple Linear Regression Analysis with R
 
 Simple linear regression with R: [R script](/script/1regression.R)
 
+## Week 5
+
+Multiple Linear Regression Analysis
+
+[Slides](/regression/regression6.html)
+
+Multiple Linear Regression Analysis - ANOVA
+
+[Slides](/regression/regression7.html)
+
+Confidence Interval Estimation of the
+Mean Response vs. Prediction Interval
+
+[Slides](/regression/regression8.html)

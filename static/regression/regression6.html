@@ -4,7 +4,7 @@
     <title>STA 506 2.0 Linear Regression Analysis</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr Thiyanga S. Talagala" />
-    <meta name="date" content="2020-10-17" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
     <link href="libs/remark-css/duke-blue.css" rel="stylesheet" />
@@ -17,9 +17,8 @@
 class: center, middle, inverse, title-slide
 
 # STA 506 2.0 Linear Regression Analysis
-## Lecture 8: Multiple Linear Regression
+## Week 5: Multiple Linear Regression
 ### Dr Thiyanga S. Talagala
-### 2020-10-17
 
 ---
 
@@ -255,20 +254,24 @@ Download the dataset from the course website: heart.data under week 8 [here](htt
 
 ```r
 library(tidyverse)
-heart.data &lt;- read_csv("heart.data.csv")
 ```
 
 ```
-Warning: Missing column names filled in: 'X1' [1]
+Warning: package 'tidyr' was built under R version 4.1.2
+```
+
+```
+Warning: package 'readr' was built under R version 4.1.2
 ```
 
 ```r
+heart.data &lt;- read_csv("heart.data.csv")
 heart.data 
 ```
 
 ```
-# A tibble: 498 x 4
-      X1 biking smoking heart.disease
+# A tibble: 498 × 4
+    ...1 biking smoking heart.disease
    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
  1     1  30.8    10.9          11.8 
  2     2  65.1     2.22          2.85
@@ -506,20 +509,20 @@ regHeart_values
 ```
 
 ```
-# A tibble: 498 x 9
-   heart.disease biking smoking .fitted  .resid .std.resid    .hat .sigma
-           &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
- 1         11.8   30.8    10.9    10.8   1.01       1.54   0.00281  0.653
- 2          2.85  65.1     2.22    2.35  0.508      0.781  0.0105   0.654
- 3         17.2    1.96   17.6    17.7  -0.551     -0.846  0.00777  0.654
- 4          6.82  44.8     2.80    6.52  0.298      0.458  0.00693  0.655
- 5          4.06  69.4    16.0     3.94  0.124      0.190  0.00638  0.655
- 6          9.55  54.4    29.3     9.33  0.222      0.341  0.00879  0.655
- 7          7.62  49.1     9.06    6.78  0.842      1.29   0.00378  0.654
- 8         15.9    4.78   12.8    16.3  -0.461     -0.708  0.00693  0.654
- 9          3.07  65.7    12.0     3.97 -0.901     -1.38   0.00579  0.653
-10         12.1   35.3    23.3    12.1   0.0188     0.0288 0.00384  0.655
-# … with 488 more rows, and 1 more variable: .cooksd &lt;dbl&gt;
+# A tibble: 498 × 9
+   heart.disease biking smoking .fitted  .resid    .hat .sigma    .cooksd
+           &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+ 1         11.8   30.8    10.9    10.8   1.01   0.00281  0.653 0.00223   
+ 2          2.85  65.1     2.22    2.35  0.508  0.0105   0.654 0.00216   
+ 3         17.2    1.96   17.6    17.7  -0.551  0.00777  0.654 0.00187   
+ 4          6.82  44.8     2.80    6.52  0.298  0.00693  0.655 0.000487  
+ 5          4.06  69.4    16.0     3.94  0.124  0.00638  0.655 0.0000770 
+ 6          9.55  54.4    29.3     9.33  0.222  0.00879  0.655 0.000344  
+ 7          7.62  49.1     9.06    6.78  0.842  0.00378  0.654 0.00210   
+ 8         15.9    4.78   12.8    16.3  -0.461  0.00693  0.654 0.00117   
+ 9          3.07  65.7    12.0     3.97 -0.901  0.00579  0.653 0.00371   
+10         12.1   35.3    23.3    12.1   0.0188 0.00384  0.655 0.00000107
+# … with 488 more rows, and 1 more variable: .std.resid &lt;dbl&gt;
 ```
 
 ---
@@ -900,7 +903,10 @@ https://www.scribbr.com/statistics/multiple-linear-regression/
 
 All rights reserved by 
 
-[Dr. Thiyanga S. Talagala](https://thiyanga.netlify.app/)
+[Dr. Thiyanga S. Talagala](https://thiyanga.netlify.app/) 
+
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
