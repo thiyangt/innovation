@@ -76,6 +76,8 @@ Transformations
 
 [Slides](/regression/regression9.html)
 
+[data](/data/data.csv)
+
 - Detection and treatment of outliers
 
 - Diagnostics for leverage and influence
