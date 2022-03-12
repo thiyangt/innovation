@@ -76,7 +76,9 @@ Transformations
 
 [Slides](/regression/regression9.html)
 
-[data](/data/data.csv)
+[data.csv](/data/data.csv)
+
+[R script](/data/datascript.R)
 
 - Detection and treatment of outliers
 
