@@ -55,7 +55,29 @@ Multiple Linear Regression Analysis - ANOVA
 
 [Slides](/regression/regression7.html)
 
+
+
+## Week 6
+
+> Mid-semester examination
+
 Confidence Interval Estimation of the
 Mean Response vs. Prediction Interval
 
 [Slides](/regression/regression8.html)
+
+Transformations
+
+- Variance-stabilization transformations
+
+- Transformations to linearize the model
+
+- Analytical methods for selecting a transformation
+
+[Slides](/regression/regression9.html)
+
+- Detection and treatment of outliers
+
+- Diagnostics for leverage and influence
+
+[Slides](/regression/regression10.html)

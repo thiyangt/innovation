@@ -2,7 +2,7 @@
 title: "STA 506 2.0 Linear Regression Analysis"
 subtitle: "Lecture 11-i: Transformations to Correct Model Inadequacies"
 author: "Dr Thiyanga S. Talagala"
-date: "2020-11-07"
+date: ""
 output:
   xaringan::moon_reader:
     lib_dir: libs

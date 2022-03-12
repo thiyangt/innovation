@@ -4,7 +4,7 @@
     <title>STA 506 2.0 Linear Regression Analysis</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr Thiyanga S. Talagala" />
-    <meta name="date" content="2020-11-07" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
     <link href="libs/remark-css/duke-blue.css" rel="stylesheet" />
@@ -19,7 +19,6 @@ class: center, middle, inverse, title-slide
 # STA 506 2.0 Linear Regression Analysis
 ## Lecture 11-i: Transformations to Correct Model Inadequacies
 ### Dr Thiyanga S. Talagala
-### 2020-11-07
 
 ---
 
@@ -66,7 +65,7 @@ salarydata
 ```
 
 ```
-# A tibble: 100 x 2
+# A tibble: 100 × 2
    years salary
    &lt;dbl&gt;  &lt;dbl&gt;
  1     1  41504
@@ -146,19 +145,19 @@ salary_residuals
 ```
 
 ```
-# A tibble: 100 x 8
-   salary years .fitted .resid .std.resid   .hat .sigma  .cooksd
-    &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
- 1  41504     1  13939. 27565.      1.03  0.0391 27347. 0.0215  
- 2  32619     1  13939. 18680.      0.697 0.0391 27428. 0.00988 
- 3  44322     1  13939. 30383.      1.13  0.0391 27315. 0.0261  
- 4  40038     2  22575. 17463.      0.650 0.0345 27436. 0.00753 
- 5  46147     2  22575. 23572.      0.877 0.0345 27388. 0.0137  
- 6  38447     2  22575. 15872.      0.590 0.0345 27447. 0.00622 
- 7  38163     2  22575. 15588.      0.580 0.0345 27449. 0.00600 
- 8  42104     3  31212. 10892.      0.404 0.0302 27473. 0.00255 
- 9  25597     3  31212. -5615.     -0.208 0.0302 27490. 0.000677
-10  39599     3  31212.  8387.      0.311 0.0302 27482. 0.00151 
+# A tibble: 100 × 8
+   salary years .fitted .resid   .hat .sigma  .cooksd .std.resid
+    &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
+ 1  41504     1  13939. 27565. 0.0391 27347. 0.0215        1.03 
+ 2  32619     1  13939. 18680. 0.0391 27428. 0.00988       0.697
+ 3  44322     1  13939. 30383. 0.0391 27315. 0.0261        1.13 
+ 4  40038     2  22575. 17463. 0.0345 27436. 0.00753       0.650
+ 5  46147     2  22575. 23572. 0.0345 27388. 0.0137        0.877
+ 6  38447     2  22575. 15872. 0.0345 27447. 0.00622       0.590
+ 7  38163     2  22575. 15588. 0.0345 27449. 0.00600       0.580
+ 8  42104     3  31212. 10892. 0.0302 27473. 0.00255       0.404
+ 9  25597     3  31212. -5615. 0.0302 27490. 0.000677     -0.208
+10  39599     3  31212.  8387. 0.0302 27482. 0.00151       0.311
 # … with 90 more rows
 ```
 
@@ -269,7 +268,7 @@ salarydata
 ```
 
 ```
-# A tibble: 100 x 3
+# A tibble: 100 × 3
    years salary log.salary
    &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
  1     1  41504       10.6
@@ -315,19 +314,19 @@ salary_log_residuals
 ```
 
 ```
-# A tibble: 100 x 8
-   log.salary years .fitted  .resid .std.resid   .hat .sigma  .cooksd
-        &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
- 1       10.6     1    10.6  0.0709      0.370 0.0391  0.196 0.00278 
- 2       10.4     1    10.6 -0.170      -0.887 0.0391  0.196 0.0160  
- 3       10.7     1    10.6  0.137       0.713 0.0391  0.196 0.0103  
- 4       10.6     2    10.6 -0.0440     -0.229 0.0345  0.196 0.000936
- 5       10.7     2    10.6  0.0980      0.510 0.0345  0.196 0.00465 
- 6       10.6     2    10.6 -0.0845     -0.440 0.0345  0.196 0.00346 
- 7       10.5     2    10.6 -0.0919     -0.479 0.0345  0.196 0.00409 
- 8       10.6     3    10.7 -0.0725     -0.377 0.0302  0.196 0.00221 
- 9       10.2     3    10.7 -0.570      -2.96  0.0302  0.187 0.137   
-10       10.6     3    10.7 -0.134      -0.696 0.0302  0.196 0.00754 
+# A tibble: 100 × 8
+   log.salary years .fitted  .resid   .hat .sigma  .cooksd .std.resid
+        &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
+ 1       10.6     1    10.6  0.0709 0.0391  0.196 0.00278       0.370
+ 2       10.4     1    10.6 -0.170  0.0391  0.196 0.0160       -0.887
+ 3       10.7     1    10.6  0.137  0.0391  0.196 0.0103        0.713
+ 4       10.6     2    10.6 -0.0440 0.0345  0.196 0.000936     -0.229
+ 5       10.7     2    10.6  0.0980 0.0345  0.196 0.00465       0.510
+ 6       10.6     2    10.6 -0.0845 0.0345  0.196 0.00346      -0.440
+ 7       10.5     2    10.6 -0.0919 0.0345  0.196 0.00409      -0.479
+ 8       10.6     3    10.7 -0.0725 0.0302  0.196 0.00221      -0.377
+ 9       10.2     3    10.7 -0.570  0.0302  0.187 0.137        -2.96 
+10       10.6     3    10.7 -0.134  0.0302  0.196 0.00754      -0.696
 # … with 90 more rows
 ```
 
@@ -604,8 +603,8 @@ coconut
 ```
 
 ```
-# A tibble: 100 x 3
-      X1 weight circumference
+# A tibble: 100 × 3
+    ...1 weight circumference
    &lt;dbl&gt;  &lt;dbl&gt;         &lt;dbl&gt;
  1     1   773.          27.8
  2     2   772.          27.8
@@ -702,19 +701,19 @@ coconut.lm.result
 ```
 
 ```
-# A tibble: 100 x 8
-   weight circumference .fitted .resid .std.resid   .hat .sigma  .cooksd
-    &lt;dbl&gt;         &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
- 1   773.          27.8    769.  4.32       2.93  0.0602   1.46 0.275   
- 2   772.          27.8    769.  2.57       1.74  0.0602   1.50 0.0971  
- 3   780.          27.9    775.  4.62       3.12  0.0556   1.45 0.287   
- 4   790.          28.1    787.  2.63       1.77  0.0470   1.50 0.0772  
- 5   806.          28.4    805.  1.39       0.934 0.0359   1.52 0.0162  
- 6   813.          28.5    811.  2.25       1.50  0.0326   1.51 0.0380  
- 7   817.          28.6    817. -0.247     -0.165 0.0295   1.53 0.000413
- 8   820.          28.6    817.  2.98       1.99  0.0295   1.50 0.0601  
- 9   818.          28.6    817.  0.473      0.316 0.0295   1.53 0.00152 
-10   830.          28.8    829.  0.825      0.549 0.0240   1.53 0.00371 
+# A tibble: 100 × 8
+   weight circumference .fitted .resid   .hat .sigma  .cooksd .std.resid
+    &lt;dbl&gt;         &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
+ 1   773.          27.8    769.  4.32  0.0602   1.46 0.275         2.93 
+ 2   772.          27.8    769.  2.57  0.0602   1.50 0.0971        1.74 
+ 3   780.          27.9    775.  4.62  0.0556   1.45 0.287         3.12 
+ 4   790.          28.1    787.  2.63  0.0470   1.50 0.0772        1.77 
+ 5   806.          28.4    805.  1.39  0.0359   1.52 0.0162        0.934
+ 6   813.          28.5    811.  2.25  0.0326   1.51 0.0380        1.50 
+ 7   817.          28.6    817. -0.247 0.0295   1.53 0.000413     -0.165
+ 8   820.          28.6    817.  2.98  0.0295   1.50 0.0601        1.99 
+ 9   818.          28.6    817.  0.473 0.0295   1.53 0.00152       0.316
+10   830.          28.8    829.  0.825 0.0240   1.53 0.00371       0.549
 # … with 90 more rows
 ```
 
@@ -782,8 +781,8 @@ coconut
 ```
 
 ```
-# A tibble: 100 x 4
-      X1 weight circumference sqrt.weight
+# A tibble: 100 × 4
+    ...1 weight circumference sqrt.weight
    &lt;dbl&gt;  &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;
  1     1   773.          27.8        27.8
  2     2   772.          27.8        27.8
@@ -830,19 +829,19 @@ coconut.lm.result2
 ```
 
 ```
-# A tibble: 100 x 8
-   sqrt.weight circumference .fitted    .resid .std.resid   .hat .sigma  .cooksd
-         &lt;dbl&gt;         &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
- 1        27.8          27.8    27.8  0.00810      0.536  0.0602 0.0157  9.20e-3
- 2        27.8          27.8    27.8 -0.0234      -1.55   0.0602 0.0155  7.66e-2
- 3        27.9          27.9    27.9  0.0211       1.39   0.0556 0.0155  5.69e-2
- 4        28.1          28.1    28.1 -0.000372    -0.0244 0.0470 0.0157  1.47e-5
- 5        28.4          28.4    28.4 -0.00373     -0.244  0.0359 0.0157  1.10e-3
- 6        28.5          28.5    28.5  0.0166       1.08   0.0326 0.0156  1.98e-2
- 7        28.6          28.6    28.6 -0.0221      -1.43   0.0295 0.0155  3.13e-2
- 8        28.6          28.6    28.6  0.0343       2.23   0.0295 0.0153  7.58e-2
- 9        28.6          28.6    28.6 -0.00946     -0.615  0.0295 0.0157  5.75e-3
-10        28.8          28.8    28.8  0.00562      0.365  0.0240 0.0157  1.64e-3
+# A tibble: 100 × 8
+   sqrt.weight circumference .fitted    .resid   .hat .sigma  .cooksd .std.resid
+         &lt;dbl&gt;         &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
+ 1        27.8          27.8    27.8  0.00810  0.0602 0.0157  9.20e-3     0.536 
+ 2        27.8          27.8    27.8 -0.0234   0.0602 0.0155  7.66e-2    -1.55  
+ 3        27.9          27.9    27.9  0.0211   0.0556 0.0155  5.69e-2     1.39  
+ 4        28.1          28.1    28.1 -0.000372 0.0470 0.0157  1.47e-5    -0.0244
+ 5        28.4          28.4    28.4 -0.00373  0.0359 0.0157  1.10e-3    -0.244 
+ 6        28.5          28.5    28.5  0.0166   0.0326 0.0156  1.98e-2     1.08  
+ 7        28.6          28.6    28.6 -0.0221   0.0295 0.0155  3.13e-2    -1.43  
+ 8        28.6          28.6    28.6  0.0343   0.0295 0.0153  7.58e-2     2.23  
+ 9        28.6          28.6    28.6 -0.00946  0.0295 0.0157  5.75e-3    -0.615 
+10        28.8          28.8    28.8  0.00562  0.0240 0.0157  1.64e-3     0.365 
 # … with 90 more rows
 ```
 
@@ -1082,7 +1081,10 @@ Introduction to Linear Regression Analysis, Douglas C. Montgomery, Elizabeth A. 
 
 All rights reserved by 
 
-[Dr. Thiyanga S. Talagala](https://thiyanga.netlify.app/)
+[Dr. Thiyanga S. Talagala](https://thiyanga.netlify.app/) 
+
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
