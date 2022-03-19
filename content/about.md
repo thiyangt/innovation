@@ -85,3 +85,25 @@ Transformations
 - Diagnostics for leverage and influence
 
 [Slides](/regression/regression10.html)
+
+## Week 7 - Week 8
+
+[Tutorial - 2](/regression/tutorial_1.pdf)
+
+[Tutorial - 3](/regression/tutorial_2.pdf)
+
+Indicator Variables
+
+[Slides](/regression/regression11.html)
+
+Variable Selection and Model Building
+
+[Slides](/regression/regression12.pdf)
+
+Multicollinearity
+
+[Slides](/regression/regression13.pdf)
+
+
+
+
