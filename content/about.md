@@ -90,11 +90,17 @@ Transformations
 
 [Tutorial - 2](/regression/tutorial_1.pdf)
 
-[Tutorial - 3](/regression/tutorial_2.pdf)
+[Tutorial - 3](/regression/tutorial2.pdf)
 
 Indicator Variables
 
 [Slides](/regression/regression11.html)
+
+[Tutorial - 4](/Tutorial/Tutorial_4.pdf)
+
+
+
+## Week 9
 
 Variable Selection and Model Building
 

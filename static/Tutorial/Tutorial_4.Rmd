@@ -1,0 +1,34 @@
+---
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Tutorial 4
+
+## Summary of penguins data 
+
+```{r, comment=NA, message=FALSE, warning=FALSE, echo=FALSE}
+library(palmerpenguins)
+data(penguins)
+summary(penguins)
+```
+
+## Regression model
+
+
+
+Write the fitted regression line using the following regression output.
+
+```{r, comment=NA, echo=FALSE}
+library(palmerpenguins)
+data(penguins)
+fit <- lm(body_mass_g ~ species + island + bill_length_mm + 
+    bill_depth_mm + flipper_length_mm + sex, data = penguins)
+fit
+summary(fit)
+anova(fit)
+
+```
