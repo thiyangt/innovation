@@ -111,5 +111,7 @@ Multicollinearity
 [Slides](/regression/regression13.pdf)
 
 
+## Week 10
 
+See Google CLassroom for Questions and Past Papers
 

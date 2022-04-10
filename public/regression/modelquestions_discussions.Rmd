@@ -2,11 +2,10 @@
 title: "Model Questions"
 subtitle: "STA 506 2.0 Linear Regression Analysis"
 author: "Thiyanga Talagala"
-date: "05/12/2020"
+date: ""
 output: pdf_document
 ---
 
-Answers: in class discussion on 12 Dec 2020.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
